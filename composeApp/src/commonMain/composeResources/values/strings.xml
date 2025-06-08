@@ -1,0 +1,5 @@
+<resources>
+    <string name="title_app_name">KMP Sandbox</string>
+    <string name="label_button">Click me!</string>
+    <string name="label_boot">Boot App</string>
+</resources>
