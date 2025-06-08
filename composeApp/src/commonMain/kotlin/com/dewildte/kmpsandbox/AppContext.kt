@@ -17,7 +17,5 @@ class AppContext(
         MutableStateFlow(AppState())
 
     var behavior: Behavior<AppContext> =
-        AppBehavior(
-            fetchAppConfig = fetchAppConfig
-        )
+        AppBehavior()
 }

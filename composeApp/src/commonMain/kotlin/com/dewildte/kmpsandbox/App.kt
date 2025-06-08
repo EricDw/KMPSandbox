@@ -18,7 +18,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import kmpsandbox.composeapp.generated.resources.Res
 import kmpsandbox.composeapp.generated.resources.compose_multiplatform
 import kmpsandbox.composeapp.generated.resources.label_boot
@@ -29,11 +28,10 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 fun AppScreen(
-    appActor: AppActor? = null,
+    appActor: AppActor
 ) {
-    val appViewModel = viewModel { AppViewModel(appActor = appActor) }
-    val state by appViewModel.state.collectAsStateWithLifecycle()
-    var showContent by remember() {
+    val state by appActor.state.collectAsStateWithLifecycle()
+    var showContent by remember {
         mutableStateOf(false)
     }
     AppContent(
@@ -41,7 +39,7 @@ fun AppScreen(
         enableButton = state.started,
         greeting = state.greeting,
         onShowContentChange = { showContent = !showContent },
-        onBootApp = { appViewModel(AppCommand.Start) }
+        onBootApp = { appActor(AppCommand.Start) }
     )
 }
 
