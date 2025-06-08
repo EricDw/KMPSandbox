@@ -18,6 +18,6 @@ class AppActor(
     val state = appContext.state.asStateFlow()
 
     override fun invoke(message: Any) {
-        appContext.behavior.invoke(appContext, message)
+        appContext.behavior(appContext, message)
     }
 }
