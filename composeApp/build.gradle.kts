@@ -73,6 +73,7 @@ kotlin {
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+            implementation(libs.kotlinx.coroutinesTest)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)

@@ -1,4 +1,4 @@
-package com.dewildte.kmpsandbox
+package com.dewildte.kmpsandbox.app
 
 import androidx.compose.runtime.Immutable
 

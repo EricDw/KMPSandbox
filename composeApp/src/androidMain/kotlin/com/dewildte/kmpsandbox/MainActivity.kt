@@ -9,6 +9,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.tooling.preview.Preview
+import com.dewildte.kmpsandbox.app.AppController
+import com.dewildte.kmpsandbox.app.ui.AppContent
+import com.dewildte.kmpsandbox.app.ui.AppScreen
 import com.dewildte.kmpsandbox.dtos.AppConfigDto
 
 class MainActivity : ComponentActivity() {
@@ -19,7 +22,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             val scope = rememberCoroutineScope()
             val actor = remember(scope) {
-                AppActor(
+                AppController(
                     scope = scope,
                     fetchAppConfig = {
                         AppConfigDto(

@@ -1,4 +1,4 @@
-package com.dewildte.kmpsandbox
+package com.dewildte.kmpsandbox.app
 
 sealed class AppCommand {
     data object Start : AppCommand()

@@ -4,6 +4,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
+import com.dewildte.kmpsandbox.app.AppController
+import com.dewildte.kmpsandbox.app.ui.AppScreen
 import com.dewildte.kmpsandbox.dtos.AppConfigDto
 import kmpsandbox.composeapp.generated.resources.Res
 import kmpsandbox.composeapp.generated.resources.title_app_name
@@ -14,7 +16,7 @@ fun main() = application {
     val scope = rememberCoroutineScope()
 
     val actor = remember(scope) {
-        AppActor(
+        AppController(
             scope = scope,
             fetchAppConfig = {
                 AppConfigDto(

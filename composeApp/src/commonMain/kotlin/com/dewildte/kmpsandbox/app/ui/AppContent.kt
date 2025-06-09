@@ -1,4 +1,4 @@
-package com.dewildte.kmpsandbox
+package com.dewildte.kmpsandbox.app.ui
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
@@ -11,37 +11,14 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kmpsandbox.composeapp.generated.resources.Res
 import kmpsandbox.composeapp.generated.resources.compose_multiplatform
 import kmpsandbox.composeapp.generated.resources.label_boot
 import kmpsandbox.composeapp.generated.resources.label_button
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
-import org.jetbrains.compose.ui.tooling.preview.Preview
-
-@Composable
-fun AppScreen(
-    appActor: AppActor
-) {
-    val state by appActor.state.collectAsStateWithLifecycle()
-    var showContent by remember {
-        mutableStateOf(false)
-    }
-    AppContent(
-        showContent = showContent,
-        enableButton = state.started,
-        greeting = state.greeting,
-        onShowContentChange = { showContent = !showContent },
-        onBootApp = { appActor(AppCommand.Start) }
-    )
-}
 
 @Composable
 fun AppContent(
@@ -87,19 +64,4 @@ fun AppContent(
             }
         }
     }
-}
-
-@Preview
-@Composable
-private fun DefaultAppContent() {
-    AppContent()
-}
-
-@Preview
-@Composable
-private fun VisibleAppContent() {
-    AppContent(
-        showContent = true,
-        greeting = "Compose preview",
-    )
 }
