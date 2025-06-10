@@ -1,5 +1,5 @@
 package com.dewildte.kmpsandbox.docs
 
-sealed class DocCommand {
-
+interface DocCommand {
+    suspend fun execute(currentDoc: Doc): Doc
 }
